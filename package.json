@@ -11,11 +11,17 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "@tsparticles/all": "^3.8.1",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "framer-motion": "^12.23.0",
     "lucide-react": "^0.475.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-scroll": "^1.9.3"
+    "react-parallax-tilt": "^1.7.300",
+    "react-scroll": "^1.9.3",
+    "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

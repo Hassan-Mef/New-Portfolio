@@ -11,6 +11,7 @@ import Services from './sections/Services';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import Pricing from './sections/Pricing';
+import BackgroundParallax from './components/BackgroundParallax';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
 
       <section id="hero"><Hero /></section>
+      <section > <BackgroundParallax /></section>
       <section id="about"><About /></section>
       <section id="projects"><Projects /></section>
       <section id="tech"><TechStack /></section>
