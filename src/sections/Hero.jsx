@@ -12,7 +12,7 @@ const Hero = () => {
 
       {/* Main hero content (STILL, no movement) */}
       <motion.section
-        className="relative z-10 min-h-screen bg-black/80 text-white flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-20 py-16"
+        className="relative z-10 min-h-screen bg-black/50 text-white flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-20 py-16"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

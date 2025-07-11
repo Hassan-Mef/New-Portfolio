@@ -78,7 +78,7 @@ const BackgroundParallax = () => {
   if (!init) return null;
 
   return (
-    <div className="absolute top-0 left-0 w-full min z-0 ">
+    <div className="absolute top-0 left-0 w-full min-h-screen z-0 ">
       <Particles id="tsparticles" options={options} />
     </div>
   );

@@ -19,7 +19,6 @@ function App() {
       <Navbar />
 
       <section id="hero"><Hero /></section>
-      <section > <BackgroundParallax /></section>
       <section id="about"><About /></section>
       <section id="projects"><Projects /></section>
       <section id="tech"><TechStack /></section>
