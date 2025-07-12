@@ -15,7 +15,7 @@ import BackgroundParallax from './components/BackgroundParallax';
 
 function App() {
   return (
-    <div className="dark bg-gray-900 text-white ">
+    <div className="dark bg-black text-white ">
       <Navbar />
 
       <section id="hero"><Hero /></section>
