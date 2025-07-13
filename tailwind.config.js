@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+       transform: {
+        'preserve-3d': 'preserve-3d',
+        'rotateY-180': 'rotateY(180deg)',
+      },
+    },
   },
   plugins: [],
 }

@@ -20,9 +20,9 @@ function App() {
 
       <section id="hero"><Hero /></section>
       <section id="about"><About /></section>
+      <section id="services"><Services /></section>
       <section id="projects"><Projects /></section>
       <section id="tech"><TechStack /></section>
-      <section id="services"><Services /></section>
       <section id="testimonials"><Testimonials /></section>
       <section id="contact"><Contact /></section>
       {/* Optional pricing */}
