@@ -17,7 +17,7 @@ const Hero = () => {
   const smoothRotate = useSpring(rotate, { stiffness: 120, damping: 15 });
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden xm ">
       <BackgroundParallax />
 
       <motion.section
@@ -28,7 +28,7 @@ const Hero = () => {
         id="hero"
       >
         {/* Left: Text */}
-        <div className="flex flex-1 flex-col justify-center items-start space-y-6 text-left max-w-2xl">
+        <div className="flex flex-1 flex-col justify-center items-start space-y-6 text-left max-w-2xl lg:mt">
           <span className="inline-block px-4 py-1 text-sm border rounded-full border-gray-600 text-gray-300">
             Built with Passion.
           </span>

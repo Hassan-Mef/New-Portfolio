@@ -39,7 +39,7 @@ const Services = () => {
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-purple-500 mb-12">What I Do</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-8 justify-center">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
@@ -49,6 +49,7 @@ const Services = () => {
             />
           ))}
         </div>
+
       </div>
     </motion.section>
   );

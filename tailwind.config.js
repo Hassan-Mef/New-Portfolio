@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
+    './src/**/*.{js,jsx,ts,tsx,html}',
   ],
   theme: {
     extend: {
@@ -10,6 +10,10 @@ export default {
         'preserve-3d': 'preserve-3d',
         'rotateY-180': 'rotateY(180deg)',
       },
+       transformOrigin: ['group-hover'],
+  transitionProperty: {
+    transform: 'transform',
+  }
     },
   },
   plugins: [],
