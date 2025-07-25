@@ -79,3 +79,11 @@ button:focus-visible {
     
   }
 }
+
+
+.xm-1{
+  @media (width <= 690px) {
+    margin-top:80px;
+    
+  }
+}

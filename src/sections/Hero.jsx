@@ -17,7 +17,7 @@ const Hero = () => {
   const smoothRotate = useSpring(rotate, { stiffness: 120, damping: 15 });
 
   return (
-    <div className="relative min-h-screen overflow-hidden xm ">
+    <div className="relative min-h-screen overflow-hidden xm xm-1 ">
       <BackgroundParallax />
 
       <motion.section
