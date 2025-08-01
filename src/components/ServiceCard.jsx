@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Tilt from 'react-parallax-tilt';
-import { motion, AnimatePresence } from 'framer-motion';
-import '../index.css';
+import React, { useState, useEffect } from "react";
+import Tilt from "react-parallax-tilt";
+import { motion, AnimatePresence } from "framer-motion";
+import "../index.css";
 
 const ServiceCard = ({ icon, title, description }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -10,8 +10,8 @@ const ServiceCard = ({ icon, title, description }) => {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleClick = () => {
@@ -32,13 +32,15 @@ const ServiceCard = ({ icon, title, description }) => {
       >
         <div
           onClick={handleClick}
-          className="w-[290px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
+          className="w-full max-w-[300px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
+          style={{ willChange: "transform", transform: "translateZ(0)" }}
         >
           <div className="w-full h-full bg-black rounded-2xl overflow-hidden perspective group">
             <div
-              className={`relative w-full h-full transition-transform duration-500 ease-in-out transform-style-preserve-3d ${
-                flipped ? 'rotate-y-180' : ''
-              } ${!isMobile ? 'group-hover:rotate-y-180' : ''}`}
+              className={`relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
+transform-style-preserve-3d ${flipped ? "rotate-y-180" : ""} ${
+                !isMobile ? "group-hover:rotate-y-180" : ""
+              }`}
             >
               {/* Front */}
               <div className="absolute w-full h-full backface-hidden bg-white/10 backdrop-blur-md rounded-2xl border border-purple-500/30 p-6 text-white flex flex-col justify-center items-center">
