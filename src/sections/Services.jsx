@@ -3,29 +3,33 @@ import { motion } from 'framer-motion';
 import ServiceCard from '../components/ServiceCard';
 import { FaCode, FaServer, FaPaintBrush, FaDiscord } from 'react-icons/fa';
 
+
 const services = [
   {
     title: 'Front-End Development',
     icon: <FaCode size={28} />,
-    description: 'Modern, performant websites using React, Tailwind CSS, and responsive design principles. Clean UI, smooth UX, and real-world scalability.',
+    description: 'Modern, performant websites using React and Tailwind CSS with responsive, pixel-perfect layouts.',
+    tech: ['React', 'Tailwind CSS', 'Vite', 'Framer Motion', 'Ui libraries'],
   },
   {
-    title: 'Discord Server Setup',
+    title: 'Discord Server Specialist',
     icon: <FaDiscord size={28} />,
-    description: 'Professional Discord server creation, moderation setup, community roles, automation, and engagement tools tailored to your audience.',
+    description: 'Complete Discord server setup, roles, channels, moderation bots, and community optimization.',
+    tech: ['Server Setup', 'Moderation', 'Community Roles'],
   },
   {
-    title: 'UI/UX Design',
-    icon: <FaPaintBrush size={28} />,
-    description: 'Focused, user-centered designs that are intuitive and clean. Interface layouts designed for clarity, responsiveness, and real user flow.',
+    title: 'Discord Bot Development',
+    icon: <FaDiscord size={28} />,
+    description: 'Custom Discord bots for automation, moderation, and engagement using JavaScript.',
+    tech: ['discord.js',  'Automation'],
   },
   {
     title: 'Full Stack (Firebase)',
     icon: <FaServer size={28} />,
-    description: 'Functional full-stack apps using Firebase, Cordless backends, and Firestore. Great for MVPs, portfolios, and custom data solutions.',
+    description: 'End-to-end apps using Firebase for auth, Firestore for data, and Cordless for custom backends.',
+    tech: ['Firebase', , 'Backendless', 'React'],
   },
 ];
-
 
 const Services = () => {
   return (
@@ -48,6 +52,7 @@ const Services = () => {
               icon={service.icon}
               title={service.title}
               description={service.description}
+              tech={service.tech}
             />
           ))}
         </div>

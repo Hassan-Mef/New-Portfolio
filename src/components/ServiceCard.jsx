@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import Tilt from "react-parallax-tilt";
-import { motion, AnimatePresence } from "framer-motion";
-import "../index.css";
+import React, { useState, useEffect } from 'react';
+import Tilt from 'react-parallax-tilt';
+import { motion, AnimatePresence } from 'framer-motion';
+import '../index.css';
 
-const ServiceCard = ({ icon, title, description }) => {
+const ServiceCard = ({ icon, title, description, tech = [] }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [flipped, setFlipped] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleClick = () => {
@@ -33,14 +33,13 @@ const ServiceCard = ({ icon, title, description }) => {
         <div
           onClick={handleClick}
           className="w-full max-w-[300px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
-          style={{ willChange: "transform", transform: "translateZ(0)" }}
+          style={{ willChange: 'transform', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
         >
           <div className="w-full h-full bg-black rounded-2xl overflow-hidden perspective group">
             <div
-              className={`relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
-transform-style-preserve-3d ${flipped ? "rotate-y-180" : ""} ${
-                !isMobile ? "group-hover:rotate-y-180" : ""
-              }`}
+              className={`relative w-full h-full transition-transform duration-700 ease-in-out transform-style-preserve-3d ${
+                flipped ? 'rotate-y-180' : ''
+              } ${!isMobile ? 'group-hover:rotate-y-180' : ''}`}
             >
               {/* Front */}
               <div className="absolute w-full h-full backface-hidden bg-white/10 backdrop-blur-md rounded-2xl border border-purple-500/30 p-6 text-white flex flex-col justify-center items-center">
@@ -50,7 +49,17 @@ transform-style-preserve-3d ${flipped ? "rotate-y-180" : ""} ${
 
               {/* Back */}
               <div className="absolute w-full h-full backface-hidden transform rotate-y-180 bg-[#1a0c2b] rounded-2xl p-6 flex flex-col justify-center items-center text-purple-200">
-                <p className="text-sm text-center">{description}</p>
+                <p className="text-sm text-center mb-4">{description}</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {tech.map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 text-xs bg-purple-700/40 text-purple-100 rounded-full border border-purple-500/30"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -78,9 +87,16 @@ transform-style-preserve-3d ${flipped ? "rotate-y-180" : ""} ${
                 <div className="text-5xl text-purple-500">{icon}</div>
                 <h2 className="text-2xl font-bold text-purple-400">{title}</h2>
                 <p className="text-sm text-purple-100">{description}</p>
-                <p className="text-sm text-purple-100">
-                  You can expand this section with any extra content you want.
-                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {tech.map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 text-xs bg-purple-800/50 text-purple-100 rounded-full border border-purple-500/30"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
                 <button
                   onClick={() => setShowModal(false)}
                   className="mt-4 text-sm text-purple-400 hover:underline"
