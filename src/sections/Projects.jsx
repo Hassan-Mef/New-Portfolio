@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ProjectCard from "../components/ProjectCard";
 import { FarmanFoods, FundFlow } from "../assets/export";
@@ -51,15 +50,11 @@ const Projects = () => {
   const [index, setIndex] = useState(0);
   const visibleCards = 3;
 
-  const handleNext = () => {
-    setIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const handlePrev = () => {
+  const handleNext = () => setIndex((prev) => (prev + 1) % projects.length);
+  const handlePrev = () =>
     setIndex((prev) =>
       prev === 0 ? projects.length - 1 : (prev - 1) % projects.length
     );
-  };
 
   useEffect(() => {
     const interval = setInterval(handleNext, 4000);
@@ -67,39 +62,40 @@ const Projects = () => {
   }, []);
 
   const getVisibleProjects = () => {
-    const result = [];
-    for (let i = 0; i < visibleCards; i++) {
-      result.push(projects[(index + i) % projects.length]);
-    }
-    return result;
+    return Array.from({ length: visibleCards }, (_, i) => 
+      projects[(index + i) % projects.length]
+    );
   };
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-10 bg-black text-white">
-      <div className="max-w-7xl mx-auto pb-10">
+    <section id="projects" className="py-20 px-6 lg:px-12 bg-black text-white">
+      <div className="pb-10">
         <h2 className="text-3xl md:text-5xl font-bold text-purple-500 text-center mb-12">
           Featured Projects
         </h2>
 
         <div className="relative">
+          {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-purple-700 hover:bg-purple-600 text-white p-2 rounded-full shadow-md"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-purple-700 hover:bg-purple-600 text-white p-3 rounded-md shadow-md"
           >
-            <FaArrowLeft />
+            <FaArrowLeft size={18} />
           </button>
 
+          {/* Cards */}
           <div className="flex justify-center overflow-visible gap-6 sm:gap-8 pb-10">
             {getVisibleProjects().map((project, i) => (
               <ProjectCard key={i} {...project} />
             ))}
           </div>
 
+          {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-purple-700 hover:bg-purple-600 text-white p-2 rounded-full shadow-md"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-purple-700 hover:bg-purple-600 text-white p-3 rounded-md shadow-md"
           >
-            <FaArrowRight />
+            <FaArrowRight size={18} />
           </button>
         </div>
       </div>
