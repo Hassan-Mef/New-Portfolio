@@ -24,10 +24,10 @@ const services = [
     tech: ['discord.js',  'Automation'],
   },
   {
-    title: 'Full Stack (Firebase)',
+    title: 'Full Stack (BAAS)',
     icon: <FaServer size={28} />,
     description: 'End-to-end apps using Firebase for auth, Firestore for data, and Cordless for custom backends.',
-    tech: ['Firebase', , 'Backendless', 'React'],
+    tech: ['Firebase',  'Backendless', 'React'],
   },
 ];
 
