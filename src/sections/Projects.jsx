@@ -80,8 +80,9 @@ const Projects = () => {
 
   // Get visible projects for desktop view
   const getVisibleProjects = () => {
-    return Array.from({ length: visibleCards }, (_, i) => 
-      projects[(index + i) % projects.length]
+    return Array.from(
+      { length: visibleCards },
+      (_, i) => projects[(index + i) % projects.length]
     );
   };
 
@@ -111,7 +112,9 @@ const Projects = () => {
                 {project.category}
               </span>
               <h3 className="mt-3 text-xl font-bold">{project.title}</h3>
-              <p className="text-gray-400 text-sm mt-1">{project.description}</p>
+              <p className="text-gray-400 text-sm mt-1">
+                {project.description}
+              </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {project.tech.map((tag, i) => (
                   <span
@@ -135,13 +138,13 @@ const Projects = () => {
         </div>
         <button
           onClick={handlePrev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 p-3 rounded-full shadow-md z-10"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 p-3 rounded-lg shadow-md z-10"
         >
           <FaArrowLeft />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 p-3 rounded-full shadow-md z-10"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 p-3 rounded-lg shadow-md z-10"
         >
           <FaArrowRight />
         </button>
@@ -169,7 +172,9 @@ const Projects = () => {
                 {project.category}
               </span>
               <h3 className="mt-3 text-xl font-bold">{project.title}</h3>
-              <p className="text-gray-400 text-sm mt-1">{project.description}</p>
+              <p className="text-gray-400 text-sm mt-1">
+                {project.description}
+              </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {project.tech.map((tag, i) => (
                   <span

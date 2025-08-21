@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-90 text-white shadow-md z-50 border-b-1 pt-2 pb-2 ">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         {/* Left: Logo + Name */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-left space-x-3">
           <img src="/logo.png" alt="Logo" className="h-8 w-8" />
           <div>
             <h1 className="text-sm font-bold">Hassan Mef</h1>
