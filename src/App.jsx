@@ -11,6 +11,7 @@ import Services from './sections/Services';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import Pricing from './sections/Pricing';
+import WebStackCircuitFresh from './sections/WebStackSection';
 import BackgroundParallax from './components/BackgroundParallax';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <section id="services"><Services /></section>
       <section id="projects"><Projects /></section>
       <section id="tech"><TechStack /></section>
+      <section id="tech1"><WebStackCircuitFresh/></section>
       <section id="testimonials"><Testimonials /></section>
       <section id="contact"><Contact /></section>
       {/* Optional pricing */}

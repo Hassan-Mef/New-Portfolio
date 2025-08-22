@@ -10,6 +10,9 @@ export default {
         'preserve-3d': 'preserve-3d',
         'rotateY-180': 'rotateY(180deg)',
       },
+      animation: {
+    'spin-slow': 'spin 8s linear infinite',
+  },
        transformOrigin: ['group-hover'],
   transitionProperty: {
     transform: 'transform',
