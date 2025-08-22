@@ -1,14 +1,22 @@
-import React from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { HassanImage } from '../assets/export';
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { HassanImage } from "../assets/export";
 
 const About = () => {
-  const { scrollYProgress } = useScroll();
+  const ref = useRef(null);
 
-  // Only start when we actually enter the About section (0.28 is after hero is done)
-  const y = useTransform(scrollYProgress, [0.28, 0.38], [-400, 0]);
-  const opacity = useTransform(scrollYProgress, [0.28, 0.38], [0, 1]);
-  const rotate = useTransform(scrollYProgress, [0.28, 0.38], [-10, 0]);
+  // observe only the About section
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+    // "start end" => when About top hits bottom of viewport (0)
+    // "end start" => when About bottom hits top of viewport (1)
+  });
+
+  // Animate within About's scroll progress
+  const y = useTransform(scrollYProgress, [0.25, 0.6], [-200, 0]);
+  const opacity = useTransform(scrollYProgress, [0.25, 0.6], [0, 1]);
+  const rotate = useTransform(scrollYProgress, [0.25, 0.6], [-10, 0]);
 
   const smoothY = useSpring(y, { stiffness: 130, damping: 20 });
   const smoothOpacity = useSpring(opacity, { stiffness: 140, damping: 20 });
@@ -17,26 +25,44 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="relative z-20 min-h-screen px-6 lg:px-20 py-16 bg-black text-white flex flex-col lg:flex-row items-center justify-center overflow-hidden" // ⬅️ prevents overflow into Hero
-      initial={{ opacity: 1, y: 40 }}
+      ref={ref}
+      className="relative z-20 min-h-screen px-6 lg:px-20 py-16 bg-black text-white flex flex-col lg:flex-row items-center justify-center overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: false, amount: 0.4 }}
     >
       {/* Left: Text */}
       <div className="flex-1 max-w-2xl space-y-6 text-center lg:text-left">
-        <h2 className="text-3xl md:text-5xl font-bold text-purple-500">About Me</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-purple-500">
+          About Me
+        </h2>
         <p className="text-gray-400 text-lg leading-relaxed">
-          Hey! I’m <span className="text-white font-medium">Hassan Mehmood</span>, a passionate developer who loves creating modern web experiences and smart Discord automation tools.
-          <br /><br />
-          I specialize in building performance-optimized, responsive, and visually engaging websites using React, Tailwind CSS, and modern libraries. I'm also known in the Discord space for creating feature-rich bots and automations that streamline communities and tasks.
+          Hey! I’m{" "}
+          <span className="text-white font-medium">Hassan Mehmood</span>, a
+          passionate developer who loves creating modern web experiences and
+          smart Discord automation tools.
+          <br />
+          <br />I specialize in building performance-optimized, responsive, and
+          visually engaging websites using React, Tailwind CSS, and modern
+          libraries. I'm also known in the Discord space for creating
+          feature-rich bots and automations that streamline communities and
+          tasks.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
-          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">Web Development</span>
-          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">Discord Bots</span>
-          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">React + Tailwind</span>
-          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">UI/UX Thinking</span>
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
+            Web Development
+          </span>
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
+            Discord Bots
+          </span>
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
+            React + Tailwind
+          </span>
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
+            UI/UX Thinking
+          </span>
         </div>
       </div>
 

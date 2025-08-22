@@ -1,16 +1,18 @@
 // Hero.jsx
-import React from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import Typewriter from 'typewriter-effect';
-import BackgroundParallax from '../components/BackgroundParallax';
-import { HassanImage } from '../assets/export';
+import React from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Typewriter from "typewriter-effect";
+import BackgroundParallax from "../components/BackgroundParallax";
+import { HassanImage } from "../assets/export";
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
 
-  const y = useTransform(scrollYProgress, [0, 0.28], [0, 300]);
-  const opacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
-  const rotate = useTransform(scrollYProgress, [0, 0.28], [0, 15]);
+  // Hero image animation
+
+  const y = useTransform(scrollYProgress, [0, 0.2], [0, 300]); // ends sooner
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 0.2], [0, 15]);
 
   const smoothY = useSpring(y, { stiffness: 140, damping: 18 });
   const smoothOpacity = useSpring(opacity, { stiffness: 140, damping: 20 });
@@ -38,11 +40,15 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-xl md:text-2xl font-light text-gray-300">
-            A Passionate{' '}
+            A Passionate{" "}
             <span className="font-semibold text-white">
               <Typewriter
                 options={{
-                  strings: ['Web Developer', 'Discord Expert ', 'Community Manager'],
+                  strings: [
+                    "Web Developer",
+                    "Discord Expert ",
+                    "Community Manager",
+                  ],
                   autoStart: true,
                   loop: true,
                   delay: 60,
@@ -53,7 +59,8 @@ const Hero = () => {
           </h2>
 
           <p className="text-gray-400 max-w-xl">
-            I build responsive, performance-driven websites and smart Discord bots that bring ideas to life.
+            I build responsive, performance-driven websites and smart Discord
+            bots that bring ideas to life.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">

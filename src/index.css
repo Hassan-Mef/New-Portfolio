@@ -68,6 +68,29 @@ button:focus-visible {
   }
 }
 
+.hero-image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+.hero-image.fade-out {
+  opacity: 0;
+}
+
+.about-image {
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.about-image.visible {
+  opacity: 1;
+}
+
+
+
 .animate-border {
   background-size: 200% 200%;
   animation: borderSpin 4s linear infinite;
