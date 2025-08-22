@@ -88,13 +88,13 @@ const Projects = () => {
 
   return (
     <section className="w-full py-10 bg-black text-white">
-      <h2 className="text-center text-4xl font-bold mb-8 text-purple-500">
+      <h2 className="text-center text-4xl font-bold mb-8 text-purple-500 pb-20">
         Featured Projects
       </h2>
 
       {/* Desktop View */}
       <div className="hidden md:block relative w-full px-6">
-        <div className="flex justify-center gap-6">
+        <div className="flex justify-center gap-6 pb-20">
           {getVisibleProjects().map((project, idx) => (
             <div
               key={idx}

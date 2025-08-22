@@ -4,6 +4,7 @@ import { STACKS, STACK_ORDER } from "../data/stacks";
 import CircuitCanvas from "../components/CircuitCanvas";
 import Chip from "../components/Chip";
 import RadialStackSelector from "../components/RadialStackSelector";
+import StackSelector from "../components/StackSelector";
 
 export default function TechStackSection() {
   const [active, setActive] = useState("web");
@@ -49,9 +50,7 @@ export default function TechStackSection() {
         </div>
 
         {/* Radial selector on left (z-30) */}
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 z-30 pointer-events-auto">
-          <RadialStackSelector options={options} activeKey={active} onChange={setActive} />
-        </div>
+        <StackSelector options={options} activeKey={active} onChange={setActive} />
       </div>
     </section>
   );

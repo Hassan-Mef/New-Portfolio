@@ -1,4 +1,4 @@
-// src/components/Chip.jsx
+
 import { motion } from "framer-motion";
 import { ICONS } from "./CircuitIcons";
 

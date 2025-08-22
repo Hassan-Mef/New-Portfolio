@@ -35,7 +35,7 @@ const Services = () => {
   return (
     <motion.section
       id="services"
-      className=" relative min-h-screen py-20 px-6 lg:px-20 bg-black text-white"
+      className=" relative min-h-screen py-10 px-6 lg:px-20 bg-black text-white "
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
