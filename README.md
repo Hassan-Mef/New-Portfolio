@@ -8,4 +8,5 @@
 - Hero section 
 - About Me section 
 - Services section (Optimization requried!)
-- Project section (working Progress)
+- Project section
+- TechStack(in Progress)
