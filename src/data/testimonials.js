@@ -11,7 +11,7 @@ export const testimonials = [
       "Hassan is an amazing Discord Developer. He provided me with many useful tips and ideas on how to enhance the server’s functionality and make it more secure from raids. He was very professional, friendly and responsive throughout the project. I am very pleased with the server he created.",
     name: "Haroon",
     title: "Founder of JHM",
-    img: "/profile.svg",
+    img: "/profiles/haroon.jpg",
   },
   {
     quote:
