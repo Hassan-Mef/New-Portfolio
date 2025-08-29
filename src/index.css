@@ -176,3 +176,78 @@ button:focus-visible {
     right: -20px;
   }
 }
+
+
+
+
+/* External CSS for testimonials */
+/* Fix cut-off + equal height */
+.testimonial-card {
+  background: #111;
+  border: 1px solid #9333ea;
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 350px;             /* fixed equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+}
+
+/* Limit text */
+.testimonial-text {
+  color: #d1d5db;
+  font-style: italic;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* show max 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Slider cleanup */
+.slick-list {
+  overflow: hidden !important; /* no scrollbar */
+}
+
+.slick-slide {
+  padding: 10px; /* spacing between cards */
+}
+
+/* Purple themed dots */
+.slick-dots {
+  bottom: -50px; /* position lower */
+}
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #9333ea;
+  opacity: 0.5;
+}
+.slick-dots li.slick-active button:before {
+  color: #a855f7;
+  opacity: 1;
+}
+
+/* Square purple arrows */
+.slick-prev, .slick-next {
+  width: 40px;
+  height: 40px;
+  background: #9333ea;
+  border-radius: 8px;
+  z-index: 10;
+}
+.slick-prev:hover, .slick-next:hover {
+  background: #a855f7;
+}
+.slick-prev:before, .slick-next:before {
+  font-size: 20px;
+  color: white;
+  opacity: 1;
+}
+
