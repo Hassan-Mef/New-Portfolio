@@ -1,6 +1,8 @@
 # my-portfolio
 
 <h3>Working Progress <h3/>
+
+![Hero Section](./public/Readme.png)
   
 ---
 
