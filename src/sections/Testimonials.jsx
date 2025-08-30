@@ -35,7 +35,7 @@ const Testimonials = () => {
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-4 text-purple-400"
+          className="text-4xl md:text-5xl font-bold mb-4 text-purple-500"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
