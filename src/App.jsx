@@ -11,6 +11,7 @@ import Services from './sections/Services';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import Pricing from './sections/Pricing';
+import Footer from './components/Footer';
 import WebStackCircuitFresh from './sections/WebStackSection';
 import BackgroundParallax from './components/BackgroundParallax';
 
@@ -28,7 +29,8 @@ function App() {
       <section id="testimonials"><Testimonials /></section>
       <section id="contact"><Contact /></section>
       {/* Optional pricing */}
-      <section id="pricing"><Pricing /></section>
+      {/*<section id="pricing"><Pricing /></section>*/}
+      <Footer></Footer>
     </div>
   );
 }

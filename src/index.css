@@ -251,3 +251,15 @@ button:focus-visible {
   opacity: 1;
 }
 
+
+/* Footer */
+@keyframes glowBorder {
+  0% { box-shadow: 0 0 5px #AD46FF; }
+  50% { box-shadow: 0 0 15px #AD46FF; }
+  100% { box-shadow: 0 0 5px #AD46FF; }
+}
+
+.animate-glow-border {
+  animation: glowBorder 3s infinite ease-in-out;
+}
+
