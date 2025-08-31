@@ -5,6 +5,7 @@ import CircuitCanvas from "../components/CircuitCanvas";
 import Chip from "../components/Chip";
 import RadialStackSelector from "../components/RadialStackSelector";
 import StackSelector from "../components/StackSelector";
+import BackgroundGrid from "../components/BackgroundGrid";
 
 export default function TechStackSection() {
   const [active, setActive] = useState("web");
@@ -19,8 +20,7 @@ export default function TechStackSection() {
   return (
     <section className="relative w-full min-h-[90vh] bg-black text-white overflow-hidden">
       {/* Glow grid background (behind everything) */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.10),transparent_70%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(168,85,247,0.06)_1px,transparent_1px),linear-gradient(rgba(168,85,247,0.06)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      
 
       {/* Title */}
       <h2 className="relative z-20 text-center pt-8 text-3xl md:text-4xl font-bold text-purple-400/90">

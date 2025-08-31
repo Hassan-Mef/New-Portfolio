@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FarmanFoods, FundFlow } from "../assets/export";
+import BackgroundGrid from "../components/BackgroundGrid";
 
 const projects = [
   {
@@ -88,6 +89,7 @@ const Projects = () => {
 
   return (
     <section className="w-full py-10 bg-black text-white">
+      
       <h2 className="text-center text-4xl font-bold mb-8 text-purple-500 pb-20">
         Featured Projects
       </h2>
