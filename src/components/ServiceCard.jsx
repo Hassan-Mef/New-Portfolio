@@ -3,6 +3,11 @@ import Tilt from "react-parallax-tilt";
 import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
 
+/* Minimal changes only:
+ - add tilt-clip on the Tilt wrapper (so CSS can clip glare)
+ - add gradient-border class on outer wrapper (CSS draws a thin overlay border that doesn't disappear on flip)
+ - preserved all original classes/flip/modal behavior
+*/
 
 const ServiceCardInner = ({
   icon,
@@ -16,24 +21,26 @@ const ServiceCardInner = ({
   return (
     <div
       onClick={onClick}
-      className="w-full max-w-[300px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
+      /* kept your existing gradient + p-[2px] border wrapper */
+      className="gradient-border w-full max-w-[300px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
       style={{
-        // ensure GPU compositing and avoid repaint thrash
         willChange: "transform",
         transform: "translateZ(0)",
         backfaceVisibility: "hidden",
         WebkitBackfaceVisibility: "hidden",
-        // isolate painting for the element so hover on one card doesn't force reflow across siblings
         contain: "paint",
         isolation: "isolate",
+        transformOrigin: "center center",
+        /* keep using clipPath for additional clipping across browsers */
+        clipPath: "inset(0 round 16px)",
+        WebkitClipPath: "inset(0 round 16px)",
       }}
     >
-      <div className="w-full h-full bg-black rounded-2xl overflow-hidden perspective group">
+      <div className="w-full h-full bg-black rounded-2xl overflow-hidden perspective group relative">
         <div
           className={`relative w-full h-full transition-transform duration-700 ease-in-out transform-style-preserve-3d ${
             flipped ? "rotate-y-180" : ""
           } ${!isMobile ? "group-hover:rotate-y-180" : ""}`}
-          // preserve 3d and hint for GPU
           style={{
             transformStyle: "preserve-3d",
             WebkitTransformStyle: "preserve-3d",
@@ -67,7 +74,6 @@ const ServiceCardInner = ({
 };
 
 const ServiceCard = ({ icon, title, description, tech = [] }) => {
-  // store isMobile in state but update via rAF-debounced resize for fewer updates
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
@@ -76,7 +82,6 @@ const ServiceCard = ({ icon, title, description, tech = [] }) => {
 
   const rafRef = useRef(null);
 
-  // Debounced resize handler using requestAnimationFrame
   const handleResize = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     rafRef.current = requestAnimationFrame(() => {
@@ -94,40 +99,45 @@ const ServiceCard = ({ icon, title, description, tech = [] }) => {
   }, [handleResize]);
 
   const handleClick = useCallback(() => {
-    // mobile: flip in place; desktop: open modal
     if (isMobile) setFlipped((s) => !s);
     else setShowModal(true);
   }, [isMobile]);
 
   return (
     <>
-      <Tilt
-        tiltMaxAngleX={10}
-        tiltMaxAngleY={10}
-        glareEnable
-        glareMaxOpacity={0.15}
-        glareColor="#a855f7"
-        glareBorderRadius="1rem"
-        className="transition-all"
-        // Performance focused tilt props:
-        transitionSpeed={400} // lower than default to smooth and reduce per-frame stress
-        gyroscope={false} // disable device gyroscope handling (saves CPU on mobile)
-        tiltReverse={false}
-        // Ensure tilt only cares about the element (not whole window)
-        trackOnWindow={false}
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.25 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="w-full"
       >
-        <ServiceCardInner
-          icon={icon}
-          title={title}
-          description={description}
-          tech={tech}
-          isMobile={isMobile}
-          flipped={flipped}
-          onClick={handleClick}
-        />
-      </Tilt>
+        {/* tilt-clip class used to force glare clipping via CSS (see index.css snippet) */}
+        <Tilt
+          tiltMaxAngleX={10}
+          tiltMaxAngleY={10}
+          glareEnable
+          glareMaxOpacity={0.15}
+          glareColor="#a855f7"
+          glareBorderRadius="1rem"
+          className="transition-all tilt-clip"
+          transitionSpeed={400}
+          gyroscope={false}
+          tiltReverse={false}
+          trackOnWindow={false}
+        >
+          <ServiceCardInner
+            icon={icon}
+            title={title}
+            description={description}
+            tech={tech}
+            isMobile={isMobile}
+            flipped={flipped}
+            onClick={handleClick}
+          />
+        </Tilt>
+      </motion.div>
 
-      {/* Modal */}
       <AnimatePresence>
         {!isMobile && showModal && (
           <motion.div
@@ -173,5 +183,4 @@ const ServiceCard = ({ icon, title, description, tech = [] }) => {
   );
 };
 
-// Prevent unnecessary re-renders if props unchanged
 export default React.memo(ServiceCard);

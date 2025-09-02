@@ -48,7 +48,8 @@ const Services = () => {
           What I Do
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-center">
+        {/* small responsive tweak: center each grid item in its column so mobile stacks are centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
