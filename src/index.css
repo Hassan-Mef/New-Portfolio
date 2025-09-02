@@ -179,39 +179,35 @@ button:focus-visible {
 
 /*Service Cards*/
 
-/* --- tilt glare clipping + stable border overlay --- */
-
-/* Ensure the Tilt wrapper clips anything the library injects (glare) */
+/* ========== Service Card helpers ========== */
+/* ensure tilt library glare + injected elements are clipped */
 .tilt-clip {
   overflow: hidden !important;
-  border-radius: 16px !important; /* matches rounded-2xl */
+  border-radius: 0.75rem; /* rounded-2xl */
   position: relative;
 }
-
-/* Clip known glare elements and make them non-interactive */
 .tilt-clip .react-parallax-tilt__glare,
 .tilt-clip .react-parallax-tilt__glare-inner,
 .tilt-clip .parallax-tilt__glare {
   pointer-events: none;
-  clip-path: inset(0 round 12px) !important;
-  -webkit-clip-path: inset(0 round 12px) !important;
+  clip-path: inset(0 round 12px);
+  -webkit-clip-path: inset(0 round 12px);
 }
 
-/* Small overlay border drawn above the gradient to make border stable during flips.
-   This doesn't change look — it re-draws the thin outline so it cannot be hidden
-   by transformed children or glare layers. */
+/* Keep thin outline stable during flips */
+.gradient-border {
+  position: relative;
+}
 .gradient-border::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 16px;
+  border-radius: 0.75rem;
   pointer-events: none;
-  /* subtle outline that matches existing border; visually identical */
-  box-shadow: inset 0 0 0 1px rgba(168,85,247,0.9);
-  mix-blend-mode: normal;
+  box-shadow: inset 0 0 0 1px rgba(168, 85, 247, 0.85);
 }
 
-/* Ensure backface helper classes exist (in case they are missing in your CSS) */
+/* helper classes (if not present elsewhere) */
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -223,6 +219,40 @@ button:focus-visible {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+/* ---------- MOBILE / TABLET: disable aggressive glow/glare to avoid bleed ---------- */
+@media (max-width: 1024px) {
+  /* hide/paralyze the glare elements if any are present */
+  .tilt-clip .react-parallax-tilt__glare,
+  .tilt-clip .react-parallax-tilt__glare-inner,
+  .tilt-clip .parallax-tilt__glare {
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  /* tone down/remove outer purple stroke and outer shadows on smaller screens */
+  .gradient-border::after {
+    box-shadow: none !important;
+  }
+
+  /* reduce inner inset glow (so it can't look like a purple box) */
+  .gradient-border .backface-hidden,
+  .gradient-border .backface-hidden + .backface-hidden {
+    box-shadow: inset 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ensure card-outer won't get clipped when scaled */
+.card-outer {
+  display: inline-block;
+  transform-origin: center center;
+}
+
+
+
+
+
+
 
 
 
