@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         {/* Left: Logo + Name */}
         <div className="flex items-left space-x-3">
-          <img src="/logo.png" alt="Logo" className="h-8 w-8" />
+          <img src="/logo.jpg" alt="Logo" className="h-8 w-8" />
           <div>
             <h1 className="text-sm font-bold">Hassan Mef</h1>
             <p className="text-xs text-gray-400 -mt-1">Code Meets Creativity.</p>
