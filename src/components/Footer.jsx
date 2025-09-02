@@ -51,11 +51,11 @@ const Footer = () => {
 
       {/* Social Links */}
       <div className="flex space-x-6 z-10">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Hassan-Mef" target="_blank" rel="noopener noreferrer">
           <Github className="w-6 h-6 hover:text-purple-400 transition-colors" />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/hassan-mehmood-b5965a24b/"
           target="_blank"
           rel="noopener noreferrer"
         >
