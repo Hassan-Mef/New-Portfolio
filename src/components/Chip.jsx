@@ -1,9 +1,11 @@
 
 import { motion } from "framer-motion";
 import { ICONS } from "./CircuitIcons";
-
 export default function Chip({ id, x, y, label, icon, className, size = 80, delay = 0 }) {
   const Icon = ICONS[icon] || ICONS.gdscript;
+
+  // 🔑 shrink size only on small screens
+  const chipSize = typeof window !== "undefined" && window.innerWidth < 768 ? size * 0.65 : size;
 
   return (
     <motion.div
@@ -19,16 +21,17 @@ export default function Chip({ id, x, y, label, icon, className, size = 80, dela
       viewport={{ once: true }}
       transition={{ delay, type: "spring", stiffness: 120 }}
     >
-      {/* core gets data-node-core for exact bounding rect measurement */}
       <div
         data-node-core={id}
         className="rounded-full bg-black border border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.9)] grid place-items-center"
-        style={{ width: size, height: size }}
+        style={{ width: chipSize, height: chipSize }}
       >
-        <Icon className={`${className || ""}`} style={{ fontSize: size * 0.5 }} />
+        <Icon className={`${className || ""}`} style={{ fontSize: chipSize * 0.5 }} />
       </div>
 
-      <span className="mt-2 text-purple-200 text-sm font-semibold drop-shadow">{label}</span>
+      <span className="mt-2 text-purple-200 text-xs sm:text-sm font-semibold drop-shadow text-center">
+        {label}
+      </span>
     </motion.div>
   );
 }
