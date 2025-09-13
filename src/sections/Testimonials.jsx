@@ -6,24 +6,29 @@ import { testimonials } from "../data/testimonials";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 const Testimonials = () => {
+  // Slick slider configuration
   const settings = {
-  dots: true,
-  infinite: true,
-  speed: 800,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  arrows: true,
-  pauseOnHover: true,
-  responsive: [
-    { breakpoint: 1280, settings: { slidesToShow: 2 } }, // tablets / medium screens
-    { breakpoint: 768, settings: { slidesToShow: 1 } },  // mobile / small devices
-  ],
-};
-
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 3, // default desktop layout
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: true,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 768, // mobile screens
+        settings: { slidesToShow: 1 },
+      },
+      {
+        breakpoint: 1024, // tablet screens
+        settings: { slidesToShow: 2 },
+      },
+    ],
+  };
 
   return (
     <motion.section
@@ -34,7 +39,9 @@ const Testimonials = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto px-6 text-center">
+      {/* Section container with responsive padding */}
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        {/* Section heading */}
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-4 text-purple-500"
           initial={{ opacity: 0, y: -30 }}
@@ -44,6 +51,8 @@ const Testimonials = () => {
         >
           Testimonials
         </motion.h2>
+
+        {/* Section subheading */}
         <motion.p
           className="text-gray-400 mb-12"
           initial={{ opacity: 0 }}
@@ -54,16 +63,17 @@ const Testimonials = () => {
           What my clients and collaborators say.
         </motion.p>
 
-        <Slider {...settings}>
+        {/* Testimonial carousel */}
+        <Slider {...settings} className="!w-full">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="px-3"
+              className="px-2 !w-full"
             >
               <div className="testimonial-card">
-                {/* Top: Profile */}
+                {/* Profile section */}
                 <div className="flex items-center mb-4">
                   <img
                     src={t.img}
@@ -78,15 +88,13 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                {/* Quote */}
-                <p className="testimonial-text">
-                  “{t.quote}”
-                </p>
+                {/* Testimonial text */}
+                <p className="testimonial-text">“{t.quote}”</p>
 
                 {/* Divider */}
                 <div className="border-t border-gray-700 my-4"></div>
 
-                {/* Footer: Company + optional badge */}
+                {/* Footer with role and verification badge */}
                 <div className="flex justify-between items-center text-sm">
                   <span className="px-3 py-1 bg-purple-900/40 text-purple-400 rounded-lg">
                     {t.title}
