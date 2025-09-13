@@ -14,7 +14,7 @@ const ServiceCardInner = ({ icon, title, description, tech = [], isMobile, flipp
   return (
     /* gradient border wrapper (static) */
     <div
-      className="gradient-border w-full max-w-[300px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl"
+      className="gradient-border mx-auto max-w-[300px] h-[400px] bg-gradient-to-tr from-purple-500 via-purple-600 to-purple-500 p-[2px] rounded-2xl"
       style={{ WebkitTapHighlightColor: "transparent" }}
     >
       <div className="w-full h-full bg-black rounded-2xl overflow-hidden relative">
@@ -80,7 +80,7 @@ const ServiceCard = ({ icon, title, description, tech = [] }) => {
     <>
       {/* outer motion wrapper handles the hover scale without clipping */}
       <motion.div
-        className="card-outer w-full"
+        className="card-outer w-full flex justify-center"
         whileHover={{ scale: 1.045 }}
         transition={{ duration: 0.28 }}
         initial={{ opacity: 0, y: 18 }}

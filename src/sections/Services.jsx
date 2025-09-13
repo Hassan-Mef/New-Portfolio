@@ -49,12 +49,13 @@ const Services = () => {
         {/* Grid: keep items centered; wrapper div ensures perfect centering in emulators */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
           {services.map((service, index) => (
-            <div key={index} className="w-full flex justify-center"> {/* extra safe wrapper */}
+            <div key={index} className="flex justify-center w-full"> {/* extra safe wrapper */}
               <ServiceCard
                 icon={service.icon}
                 title={service.title}
                 description={service.description}
                 tech={service.tech}
+                className="text-center sm:text-left"
               />
             </div>
           ))}
