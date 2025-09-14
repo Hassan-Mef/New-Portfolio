@@ -1,11 +1,12 @@
-
 import { motion } from "framer-motion";
 import { ICONS } from "./CircuitIcons";
+
 export default function Chip({ id, x, y, label, icon, className, size = 80, delay = 0 }) {
   const Icon = ICONS[icon] || ICONS.gdscript;
 
-  // 🔑 shrink size only on small screens
-  const chipSize = typeof window !== "undefined" && window.innerWidth < 768 ? size * 0.65 : size;
+  // Only shrink chip size (not position) on small screens
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const chipSize = isMobile ? size * 0.65 : size;
 
   return (
     <motion.div
@@ -28,7 +29,6 @@ export default function Chip({ id, x, y, label, icon, className, size = 80, dela
       >
         <Icon className={`${className || ""}`} style={{ fontSize: chipSize * 0.5 }} />
       </div>
-
       <span className="mt-2 text-purple-200 text-xs sm:text-sm font-semibold drop-shadow text-center">
         {label}
       </span>
