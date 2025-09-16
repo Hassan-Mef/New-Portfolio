@@ -43,7 +43,7 @@ export const STACKS = {
     stm32:      { x: 30, y: 40, label: "STM32",        icon: "stm32",    class: "text-cyan-300" },
     esp32:      { x: 55, y: 45, label: "ESP32",        icon: "esp32",    class: "text-emerald-300" },
     arduino:    { x: 70, y: 40, label: "Arduino",      icon: "arduino",  class: "text-sky-300" },
-    armasm:     { x: 20, y: 70, label: "ARM Assembly", icon: "armasm",   class: "text-orange-300" },
+    armasm:     { x: 20, y: 70, label: "ARM Assembly", icon: "arm",   class: "text-orange-300" },
     keil:       { x: 35, y: 70, label: "Keil (MDK)",   icon: "keil",     class: "text-gray-200" },
     arduinoide: { x: 72, y: 70, label: "Arduino IDE",  icon: "arduinoide", class: "text-sky-200" },
   },
