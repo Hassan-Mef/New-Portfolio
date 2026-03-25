@@ -5,6 +5,7 @@ import FarmanFoods from './Images/FarmanFoods.png'
 import FundFlow from './Images/FundFlow.png'
 import Bg_1 from './Images/Bg-1.jpg'
 import Bg_2 from './Images/Bg-2.jpg'
+import AdaptiveGame from './Images/adaptive_game.png'
 
 // Add other images or videos as needed
 
@@ -13,5 +14,6 @@ export {
   FarmanFoods,
   FundFlow,
   Bg_1,
-  Bg_2
+  Bg_2,
+  AdaptiveGame
 };
