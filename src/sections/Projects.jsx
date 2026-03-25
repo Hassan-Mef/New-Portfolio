@@ -37,12 +37,12 @@ const projects = [
     link: "https://firebase-blog.vercel.app",
   },
   {
-    title: "Game UI Layout",
-    category: "Frontend UI",
-    image: "/images/game-ui.png",
-    description: "Valorant-inspired responsive game UI.",
-    tech: ["React", "Tailwind CSS"],
-    link: "https://github.com/yourusername/game-ui",
+    title: "Adaptive Game Engine",
+    category: "Full Stack",
+    image: "/images/adaptive_game.png",
+    description: "A smart difficulty adjustment system for a web-based mini-game(Prototype).",
+    tech: ["React", "Three.js","MS-SQL"],
+    link: "https://github.com/Hassan-Mef/Adaptive-Game-Engine",
   },
 ];
 
