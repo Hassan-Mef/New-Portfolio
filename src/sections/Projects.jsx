@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { FarmanFoods, FundFlow } from "../assets/export";
+import { FarmanFoods, FundFlow, AdaptiveGame } from "../assets/export";
 import BackgroundGrid from "../components/BackgroundGrid";
 
 const projects = [
@@ -39,7 +39,7 @@ const projects = [
   {
     title: "Adaptive Game Engine",
     category: "Full Stack",
-    image: "/images/adaptive_game.jpg",
+    image: AdaptiveGame,
     description: "A smart difficulty adjustment system for a web-based mini-game(Prototype).",
     tech: ["React", "Three.js","MS-SQL"],
     link: "https://github.com/Hassan-Mef/Adaptive-Game-Engine",
