@@ -39,7 +39,7 @@ const projects = [
   {
     title: "Adaptive Game Engine",
     category: "Full Stack",
-    image: "/images/adaptive_game.png",
+    image: "/images/adaptive_game.jpg",
     description: "A smart difficulty adjustment system for a web-based mini-game(Prototype).",
     tech: ["React", "Three.js","MS-SQL"],
     link: "https://github.com/Hassan-Mef/Adaptive-Game-Engine",
