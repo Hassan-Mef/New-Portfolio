@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { FarmanFoods, FundFlow, AdaptiveGame } from "../assets/export";
+import { FarmanFoods, FundFlow, AdaptiveGame, Systolic_Array } from "../assets/export";
 import BackgroundGrid from "../components/BackgroundGrid";
 
 const projects = [
@@ -29,13 +29,13 @@ const projects = [
     link: "https://github.com/yourusername/fundflow",
   },
   {
-    title: "Firebase Blog",
-    category: "Full Stack",
-    image: "/images/firebase-blog.png",
-    description: "A clean blogging platform using Firebase Firestore.",
-    tech: ["React", "Firebase"],
-    link: "https://firebase-blog.vercel.app",
-  },
+  title: "Systolic Array Processor (2D Convolution)",
+  category: "Computer Architecture",
+  image: Systolic_Array, 
+  description: "Designed and implemented a hardware-efficient systolic array architecture for parallel matrix multiplication. The project focuses on pipelined data flow, optimized processing elements (PEs), and high-throughput computation.",
+  tech: ["Verilog", "Digital Design", "Computer Architecture", "FPGA"],
+  link: "https://github.com/Hassan-Mef/Systolic-Array",
+},
   {
     title: "Adaptive Game Engine",
     category: "Full Stack",
