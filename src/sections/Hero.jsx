@@ -45,8 +45,8 @@ const Hero = () => {
                 options={{
                   strings: [
                     "Web Developer",
-                    "Discord Expert ",
-                    "Community Manager",
+                    "Discord Bot Developer",
+                    "Embedded Engineer",
                   ],
                   autoStart: true,
                   loop: true,
