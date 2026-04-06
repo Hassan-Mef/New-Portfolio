@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { ICONS } from "./CircuitIcons";
+import { ICONS } from "./CircuitIcons";   // your old setup
+import { iconMap } from "../data/iconMap"; // new central map
 
 export default function Chip({ id, x, y, label, icon, className, size = 80, delay = 0 }) {
-  const Icon = ICONS[icon] || ICONS.gdscript;
+  // Try new iconMap first, fallback to old ICONS
+  const IconOrImg = iconMap[icon] || ICONS[icon] || ICONS.gdscript;
 
   // Only shrink chip size (not position) on small screens
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
@@ -27,7 +29,17 @@ export default function Chip({ id, x, y, label, icon, className, size = 80, dela
         className="rounded-full bg-black border border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.9)] grid place-items-center"
         style={{ width: chipSize, height: chipSize }}
       >
-        <Icon className={`${className || ""}`} style={{ fontSize: chipSize * 0.5 }} />
+        {typeof IconOrImg === "function" ? (
+          // React icon component (unchanged behavior)
+          <IconOrImg className={className || ""} style={{ fontSize: chipSize * 0.5 }} />
+        ) : (
+          // PNG fallback
+          <img
+            src={IconOrImg}
+            alt={label}
+            style={{ width: chipSize * 0.6, height: chipSize * 0.6, objectFit: "contain" }}
+          />
+        )}
       </div>
       <span className="mt-2 text-purple-200 text-xs sm:text-sm font-semibold drop-shadow text-center">
         {label}
