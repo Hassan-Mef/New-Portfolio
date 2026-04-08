@@ -58,8 +58,7 @@ const Hero = () => {
           </h2>
 
           <p className="text-gray-400 max-w-xl">
-            I build responsive, performance-driven websites and smart Discord
-            bots that bring ideas to life.
+           I build end-to-end systems — from low-level embedded hardware to scalable web applications.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
