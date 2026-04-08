@@ -68,7 +68,7 @@ const Footer = () => {
 
       {/* Bottom Text */}
       <p className="text-sm mt-6 z-10 text-gray-400">
-        © {new Date().getFullYear()} Your Name. All rights reserved.
+        © {new Date().getFullYear()} Hassan-Mef. All rights reserved.
       </p>
     </footer>
   );

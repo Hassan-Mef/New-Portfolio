@@ -1,38 +1,52 @@
 import { motion } from "framer-motion";
 import ServiceCard from "../components/ServiceCard";
-import { FaCode, FaServer, FaPaintBrush, FaDiscord } from "react-icons/fa";
-
+import { FaCode, FaServer, FaPaintBrush, FaDiscord, FaKickstarter } from "react-icons/fa";
 const services = [
   {
-    title: "Front-End Development",
-    icon: <FaCode size={28} />,
+    title: "Embedded Systems & Hardware",
+    icon: <FaKickstarter size={28} />,
     description:
-      "Modern, performant websites using React and Tailwind CSS with responsive, pixel-perfect layouts.",
-    tech: ["React", "Tailwind CSS", "Vite", "Framer Motion", "Ui libraries"],
+      "Development of low-level embedded systems and custom hardware solutions, including microcontroller programming, peripheral interfacing, and processor design.",
+    tech: [
+      "STM32",
+      "Embedded C",
+      "RISC-V",
+      "Verilog",
+      "GPIO",
+      "ADC",
+      "Timers",
+      "UART",
+    ],
   },
   {
-    title: "Discord Server Specialist",
-    icon: <FaDiscord size={28} />,
-    description:
-      "Complete Discord server setup, roles, channels, moderation bots, and community optimization.",
-    tech: ["Server Setup", "Moderation", "Community Roles"],
-  },
-  {
-    title: "Discord Bot Development",
-    icon: <FaDiscord size={28} />,
-    description:
-      "Custom Discord bots for automation, moderation, and engagement using JavaScript.",
-    tech: ["discord.js", "Automation"],
-  },
-  {
-    title: "Full Stack (BaaS)",
+    title: "Full-Stack Development (BaaS)",
     icon: <FaServer size={28} />,
     description:
-      "End-to-end apps using Firebase for auth, Firestore for data, and Cordless for custom backends.",
-    tech: ["Firebase", "Backendless", "React"],
+      "End-to-end application development using modern backends, databases, and APIs with scalable architecture.",
+    tech: [
+      "Firebase",
+      "MS SQL",
+      "MySQL",
+      "PostgreSQL",
+      "REST APIs",
+      "Backendless",
+    ],
   },
-];
-
+  {
+    title: "Frontend Engineering",
+    icon: <FaCode size={28} />,
+    description:
+      "Building responsive, high-performance user interfaces with clean design, smooth animations, and strong UX focus.",
+    tech: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+  },
+  {
+    title: "Automation & Discord Systems",
+    icon: <FaDiscord size={28} />,
+    description:
+      "Custom automation solutions including Discord bots, server architecture, moderation systems, and API integrations.",
+    tech: ["discord.js", "Bot Development", "Automation", "Webhooks"],
+  },
+];2
 const Services = () => {
   return (
     <motion.section

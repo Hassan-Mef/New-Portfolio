@@ -10,6 +10,10 @@ export default {
         'preserve-3d': 'preserve-3d',
         'rotateY-180': 'rotateY(180deg)',
       },
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      mono: ['JetBrains Mono', 'monospace'],
+  },
       animation: {
     'spin-slow': 'spin 8s linear infinite',
   },
