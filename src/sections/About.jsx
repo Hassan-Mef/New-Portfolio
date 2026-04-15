@@ -41,28 +41,34 @@ const About = () => {
         <p className="text-gray-400 text-lg leading-relaxed">
           Hey! I’m{" "}
           <span className="text-white font-medium">Hassan Mehmood</span>, a
-          passionate developer who loves creating modern web experiences and
-          smart Discord automation tools.
+          Computer Engineering student and developer focused on building both
+          software and hardware-driven solutions.
           <br />
-          <br />I specialize in building performance-optimized, responsive, and
-          visually engaging websites using React, Tailwind CSS, and modern
-          libraries. I'm also known in the Discord space for creating
-          feature-rich bots and automations that streamline communities and
-          tasks.
+          <br />I work across the stack — from developing responsive web
+          applications and scalable backends to designing embedded systems with
+          microcontrollers and low-level programming. My interests also extend
+          to automation, where I build custom Discord bots and systems that
+          streamline workflows and enhance user experiences.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
           <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
-            Web Development
+            Embedded Systems
           </span>
           <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
-            Discord Bots
+            RISC-V & Verilog
+          </span>
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
+            Full-Stack Development
           </span>
           <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
             React + Tailwind
           </span>
           <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
-            UI/UX Thinking
+            Automation & Discord Bots
+          </span>
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">
+            Hardware Interfacing
           </span>
         </div>
       </div>
